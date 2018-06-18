@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/spaceParts_088.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/platformIndustrial_068.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/platformIndustrial_069.png" type="Texture" id=3]
+[ext_resource path="res://assets/audio/metalClick.ogg" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "turn",
+"speed": 5.0
+} ]
+
+[node name="EngineRoomFloor" type="Node" index="0"]
+
+[node name="Floor" type="Sprite" parent="." index="0"]
+position = Vector2( 960, 1050 )
+scale = Vector2( 17.5926, 1.75 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Gears1" type="AnimatedSprite" parent="." index="1" groups=[
+"gears",
+]]
+position = Vector2( 502, 976 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "turn"
+flip_v = true
+_sections_unfolded = [ "Transform", "frames" ]
+
+[node name="Gears3" type="AnimatedSprite" parent="." index="2" groups=[
+"gears",
+]]
+position = Vector2( 1266, 975 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "turn"
+flip_v = true
+_sections_unfolded = [ "Transform", "frames" ]
+
+[node name="Gears2" type="AnimatedSprite" parent="." index="3" groups=[
+"gears",
+]]
+position = Vector2( 689, 895 )
+scale = Vector2( 1.9999, 2 )
+frames = SubResource( 1 )
+animation = "turn"
+_sections_unfolded = [ "Transform", "frames" ]
+
+[node name="Gears4" type="AnimatedSprite" parent="." index="4" groups=[
+"gears",
+]]
+position = Vector2( 1452, 895 )
+scale = Vector2( 1.9999, 2 )
+frames = SubResource( 1 )
+animation = "turn"
+_sections_unfolded = [ "Transform", "frames" ]
+
+[node name="gears_noise" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 4 )
+volume_db = -25.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+

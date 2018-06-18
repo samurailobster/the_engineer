@@ -1,0 +1,504 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/scenes/item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/metalPanel.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/metalPanel_red.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/metalPanel_red-a.png" type="Texture" id=5]
+[ext_resource path="res://assets/font/Kenney Mini.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/font/Kenney Future.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/sprites/barHorizontal_red_mid.png" type="Texture" id=8]
+[ext_resource path="res://assets/scenes/conveyor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/scenes/Dispenser.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scenes/CoolantChamber.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scenes/Reactor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/scenes/floor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/scifiEnvironment_07.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/items/crystal.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/items/upgrade.png" type="Texture" id=16]
+
+[sub_resource type="DynamicFont" id=7]
+
+size = 96
+outline_size = 4
+outline_color = Color( 0.0273438, 0.0264893, 0.0264893, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 64
+outline_size = 4
+outline_color = Color( 0.945098, 0.411765, 0.0627451, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 64
+outline_size = 4
+outline_color = Color( 0.894531, 0.0908508, 0.0908508, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="StyleBoxTexture" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 16, 26 )
+margin_left = 0.0
+margin_right = 0.0
+margin_top = 0.0
+margin_bottom = 0.0
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+modulate_color = Color( 1, 1, 1, 1 )
+draw_center = true
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings", "font_data" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings", "font_data" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 96
+outline_size = 5
+outline_color = Color( 0.0471191, 0.0581627, 0.753906, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings", "font_data" ]
+
+[node name="game" type="Node2D" index="0"]
+position = Vector2( 1, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Rect", "Visibility", "Z Index" ]
+random_item = ExtResource( 2 )
+
+[node name="item_spawner" type="Position2D" parent="." index="0"]
+position = Vector2( 958, 308 )
+z_index = -20
+z_as_relative = false
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="background" type="TextureRect" parent="." index="1"]
+modulate = Color( 1, 1, 1, 0.956863 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_right = 1919.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+_sections_unfolded = [ "Rect", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Restart" type="TextureButton" parent="background" index="0"]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1056.0
+margin_top = 345.0
+margin_right = 1676.0
+margin_bottom = 602.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+expand = true
+_sections_unfolded = [ "Margin", "Textures", "Visibility", "texture_normal" ]
+
+[node name="Label" type="Label" parent="background/Restart" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 37.0
+margin_top = 91.0
+margin_right = 587.0
+margin_bottom = 222.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+text = "RESTART"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
+
+[node name="ReactorTemp" type="Label" parent="." index="2"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1318.0
+margin_top = 23.0
+margin_right = 1789.0
+margin_bottom = 95.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "Margin", "custom_fonts/font" ]
+
+[node name="degreesFarenheit" type="Label" parent="ReactorTemp" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 456.0
+margin_top = -3.0
+margin_right = 563.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "°F"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
+
+[node name="CoolantLevel" type="ProgressBar" parent="." index="3"]
+modulate = Color( 0.0705882, 0.913725, 0.0627451, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 28.0
+margin_right = 300.0
+margin_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/fg = SubResource( 2 )
+min_value = 0.0
+max_value = 1000.0
+step = 1.0
+page = 0.0
+value = 5.0
+exp_edit = false
+rounded = false
+allow_greater = false
+allow_lesser = false
+percent_visible = true
+_sections_unfolded = [ "Grow Direction", "Margin", "Percent", "Rect", "Textures", "Tint", "Visibility", "custom_styles/fg" ]
+
+[node name="Conveyor" parent="." index="4" instance=ExtResource( 9 )]
+show_behind_parent = true
+position = Vector2( 1000, 818 )
+scale = Vector2( 2.5, 1 )
+constant_linear_velocity = Vector2( 1, 0 )
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+
+[node name="Dispenser" parent="." index="5" instance=ExtResource( 10 )]
+position = Vector2( 962, 511 )
+z_index = 1
+
+[node name="CoolantChamber" parent="." index="6" instance=ExtResource( 11 )]
+position = Vector2( 120, 788 )
+scale = Vector2( 3.5, 3.5 )
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
+
+[node name="Reactor" parent="." index="7" instance=ExtResource( 12 )]
+position = Vector2( 1790, 790 )
+scale = Vector2( 3.5, 3.5 )
+
+[node name="EngineRoomFloor" parent="." index="8" instance=ExtResource( 13 )]
+
+[node name="GridContainer" type="GridContainer" parent="." index="9"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1047.0
+margin_top = 109.0
+margin_right = 1865.0
+margin_bottom = 322.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/hseparation = 50
+columns = 3
+
+[node name="fuelcrystal" type="Sprite" parent="GridContainer" index="0"]
+position = Vector2( 375, 99 )
+texture = ExtResource( 14 )
+
+[node name="fuelcounter" type="Label" parent="GridContainer/fuelcrystal" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -51.0
+margin_top = 42.0
+margin_right = 44.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
+
+[node name="coolantcrystal" type="Sprite" parent="GridContainer" index="1"]
+position = Vector2( 670, 94 )
+texture = ExtResource( 15 )
+
+[node name="coolantcounter" type="Label" parent="GridContainer/coolantcrystal" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -41.0
+margin_top = 45.0
+margin_right = 58.0
+margin_bottom = 98.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+
+[node name="upgrade2" type="Sprite" parent="GridContainer" index="2"]
+position = Vector2( 110, 92 )
+texture = ExtResource( 16 )
+
+[node name="upgradecounter" type="Label" parent="GridContainer/upgrade2" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -62.0
+margin_top = 48.0
+margin_right = 52.0
+margin_bottom = 105.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="upgrade" type="Label" parent="GridContainer" index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 224.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "UPGRADE TECH"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+
+[node name="fuel" type="Label" parent="GridContainer" index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 274.0
+margin_right = 490.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FUEL CRYSTAL"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+
+[node name="crystal" type="Label" parent="GridContainer" index="5"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 540.0
+margin_right = 812.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "COOLANT CRYSTAL"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+
+[node name="score" type="Label" parent="." index="10"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 592.0
+margin_top = 795.0
+margin_right = 1219.0
+margin_bottom = 960.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
+
+[connection signal="pressed" from="background/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="create_item" from="Dispenser" to="." method="_on_Dispenser_create_item"]
+[connection signal="start_conveyor" from="Dispenser" to="." method="_on_Dispenser_start_conveyor"]
+[connection signal="start_coolant" from="Dispenser" to="." method="_on_Dispenser_start_coolant"]
+[connection signal="start_dispenser" from="Dispenser" to="." method="_on_Dispenser_start_dispenser"]
+[connection signal="start_reactor" from="Dispenser" to="." method="_on_Dispenser_start_reactor"]
+[connection signal="coolant_level_dropping" from="CoolantChamber" to="." method="_on_CoolantChamber_coolant_level_dropping"]
+[connection signal="modify_coolant" from="CoolantChamber" to="." method="_on_CoolantChamber_modify_coolant"]
+[connection signal="modify_reactor" from="Reactor" to="." method="_on_Reactor_modify_reactor"]
+[connection signal="reactor_cooling" from="Reactor" to="." method="_on_Reactor_reactor_cooling"]

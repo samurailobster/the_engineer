@@ -1,0 +1,282 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/scripts/Dispenser.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/red_right.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/red_right_a.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/blue_left.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/blue_left_a.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/spaceParts_090.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/platformIndustrial_032.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/platformIndustrial_099.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/platformIndustrial_086.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/platformIndustrial_100.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/spaceRocketParts_021.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/switchRed.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/switchRed_pressed.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/switchBlue.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/switchBlue_pressed.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/buttonGreen.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/buttonGreen_pressed.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/buttonYellow.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/buttonYellow_pressed.png" type="Texture" id=19]
+[ext_resource path="res://assets/font/Kenney Mini.ttf" type="DynamicFontData" id=20]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "right_blinker",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "left_blinker",
+"speed": 3.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 25
+outline_size = 1
+outline_color = Color( 0.0234375, 0.022522, 0.022522, 1 )
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 20 )
+_sections_unfolded = [ "Font", "Settings", "font_data" ]
+
+[node name="Dispenser" type="Node2D" index="0"]
+position = Vector2( 1, 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index", "item_scene" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="right_blinker" type="AnimatedSprite" parent="." index="0"]
+position = Vector2( -212, 83 )
+frames = SubResource( 2 )
+animation = "right_blinker"
+speed_scale = 2.0
+_sections_unfolded = [ "Visibility", "Z Index" ]
+
+[node name="left_blinker" type="AnimatedSprite" parent="." index="1"]
+position = Vector2( -465, 85 )
+frames = SubResource( 1 )
+animation = "left_blinker"
+speed_scale = 2.0
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="sprite_container" type="Node2D" parent="." index="2"]
+
+[node name="part3" type="Sprite" parent="sprite_container" index="0"]
+position = Vector2( -434, 16 )
+rotation = 1.5708
+scale = Vector2( 1.29412, 1 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="part2" type="Sprite" parent="sprite_container" index="1"]
+position = Vector2( -127, -217 )
+scale = Vector2( 1.29412, 1 )
+texture = ExtResource( 6 )
+flip_v = true
+_sections_unfolded = [ "Offset" ]
+
+[node name="display" type="Sprite" parent="sprite_container" index="2"]
+position = Vector2( -349, -177 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="column" type="Sprite" parent="sprite_container" index="3"]
+position = Vector2( -3, -432 )
+scale = Vector2( 1.34286, 1.12143 )
+z_index = 2
+texture = ExtResource( 8 )
+flip_v = true
+_sections_unfolded = [ "Offset", "Z Index" ]
+
+[node name="column2" type="Sprite" parent="sprite_container" index="4"]
+position = Vector2( -3, -261.625 )
+scale = Vector2( 1.34286, 1.32321 )
+z_index = 2
+texture = ExtResource( 9 )
+flip_v = true
+_sections_unfolded = [ "Offset", "Z Index" ]
+
+[node name="window" type="Sprite" parent="sprite_container" index="5"]
+position = Vector2( -2.5, -125 )
+scale = Vector2( 2.64286, 2.45714 )
+z_index = 2
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform", "Z Index", "texture" ]
+
+[node name="part" type="Sprite" parent="sprite_container" index="6"]
+position = Vector2( -127, -247 )
+scale = Vector2( 1.29412, 1 )
+texture = ExtResource( 6 )
+flip_v = true
+_sections_unfolded = [ "Offset" ]
+
+[node name="part4" type="Sprite" parent="sprite_container" index="7"]
+position = Vector2( -243, 15 )
+rotation = 1.5708
+scale = Vector2( 1.29412, 1 )
+texture = ExtResource( 6 )
+flip_v = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="nozzle" type="Sprite" parent="sprite_container" index="8"]
+position = Vector2( -2, 2 )
+texture = ExtResource( 11 )
+
+[node name="ReactorStart" type="TextureButton" parent="." index="3"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -342.0
+margin_top = -413.0
+margin_right = -214.0
+margin_bottom = -285.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="CoolantChamberStart" type="TextureButton" parent="." index="4"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -410.0
+margin_top = -414.0
+margin_right = -282.0
+margin_bottom = -286.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="StartDispenser" type="TextureButton" parent="." index="5"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -273.0
+margin_top = -418.0
+margin_right = -203.0
+margin_bottom = -348.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+_sections_unfolded = [ "Mouse", "Rect", "Textures" ]
+
+[node name="StartConveyor" type="TextureButton" parent="." index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -486.0
+margin_top = -418.0
+margin_right = -416.0
+margin_bottom = -348.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+_sections_unfolded = [ "Mouse", "Rect", "Textures" ]
+
+[node name="AudioDispenser" type="AudioStreamPlayer2D" parent="." index="7"]
+position = Vector2( 2, -2 )
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="ItemTimer" type="Timer" parent="." index="8"]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Announcement" type="Label" parent="." index="9"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -489.0
+margin_top = -307.0
+margin_right = -258.0
+margin_bottom = -95.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.121569, 0.843137, 0.117647, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Press the yellow button to start the conveyor!"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+
+[connection signal="pressed" from="ReactorStart" to="." method="_on_ReactorStart_pressed"]
+[connection signal="pressed" from="CoolantChamberStart" to="." method="_on_CoolantChamberStart_pressed"]
+[connection signal="pressed" from="StartDispenser" to="." method="_on_StartDispenser_pressed"]
+[connection signal="pressed" from="StartConveyor" to="." method="_on_StartConveyor_pressed"]
+[connection signal="timeout" from="ItemTimer" to="." method="_on_ItemTimer_timeout"]

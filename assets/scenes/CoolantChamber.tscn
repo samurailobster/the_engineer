@@ -1,0 +1,106 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/scripts/CoolantChamber.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/highDown.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sprites/platformIndustrial_100.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/platformIndustrial_086.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_5.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_6.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_4.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_7.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_8.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_9.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_10.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_12.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_11.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_13.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_14.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_15.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/galaxy/galaxy_16.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/platformIndustrial_099.png" type="Texture" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "cool",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 124.173, 126.241 )
+
+[node name="CoolantChamber" type="Area2D" index="0"]
+position = Vector2( 1, 1 )
+z_index = 1
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="noise" type="AudioStreamPlayer" parent="." index="0"]
+stream = ExtResource( 2 )
+volume_db = -28.647
+pitch_scale = 0.24
+autoplay = false
+mix_target = 2
+bus = "Master"
+_sections_unfolded = [ "stream" ]
+
+[node name="LevelTimer" type="Timer" parent="." index="1"]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="chamber" type="Sprite" parent="." index="2"]
+position = Vector2( 1.53082, -35.8697 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="top" type="Sprite" parent="chamber" index="0"]
+position = Vector2( 0.0342407, -69.7524 )
+scale = Vector2( 0.499767, 0.5 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="coolant" type="AnimatedSprite" parent="chamber" index="1"]
+visible = false
+modulate = Color( 0.0588235, 0.937255, 0.443137, 1 )
+show_behind_parent = true
+position = Vector2( 0, 0.568787 )
+scale = Vector2( 0.2, 0.18897 )
+frames = SubResource( 1 )
+animation = "cool"
+frame = 5
+speed_scale = 2.0
+_sections_unfolded = [ "Animation", "Transform", "Visibility", "frames" ]
+
+[node name="base" type="Sprite" parent="chamber" index="2"]
+position = Vector2( 0.0767212, 69.7826 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( 1.53082, -35.9156 )
+scale = Vector2( 0.2, 0.18897 )
+shape = SubResource( 2 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_CoolantChamber_body_shape_entered"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
