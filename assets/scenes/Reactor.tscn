@@ -37,9 +37,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 24.4766, 23.1976 )
 
-[node name="ReactorChamber" type="Area2D" index="0" groups=[
-"reactor_chamber",
-]]
+[node name="ReactorChamber" type="Area2D" index="0"]
 position = Vector2( 315.354, 333.732 )
 z_index = 1
 input_pickable = true
@@ -51,6 +49,9 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="chamber" type="Sprite" parent="." index="0"]
 position = Vector2( 1.53082, -35.8697 )

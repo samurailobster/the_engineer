@@ -40,7 +40,8 @@ var run_speed = 350
 var gravity = 2500
 var velocity = Vector2()
 
-var reactor_max_temp = 2500
+var reactor_max_temp = 5000
+var coolant_level_max = 5000
 var score_temp
 
 func _ready():
@@ -80,7 +81,7 @@ func _on_Dispenser_start_coolant():
 		coolant_sound.play()
 		coolant_timer.start()
 		coolant_running = true
-		coolant_level.value = 1000
+		coolant_level.text = "1000"
 	else:
 		coolant_animation.stop()
 		coolant_animation.visible = not visible
@@ -98,17 +99,16 @@ func _on_Reactor_reactor_cooling():
 		game_stop()
 
 func _on_CoolantChamber_coolant_level_dropping():
-	coolant_level.value -= 10
-	if coolant_level.value <= 500:
+	var c_level = int(coolant_level.text)
+	c_level -= 10
+	coolant_level.text = str(c_level)
+	if c_level <= 500:
 		announcement.text = "Critically low coolant level! Reactor temperature rising faster!"
-	if coolant_level.value < 100:
+	if c_level < 100:
 		announcement.text = "Coolant levels collapsing! Abandon ship!"
 		game_stop()
 			
 func game_stop():
-	_on_Dispenser_start_dispenser()
-	_on_Dispenser_start_coolant()
-	_on_Dispenser_start_conveyor()
 	item_timer.stop()
 	dispenser.visible = not visible
 	restart_button.visible = visible
@@ -167,26 +167,30 @@ func _count_items(c_item_type):
 		var cc = int(cool_count.text)
 		cc += 1
 		cool_count.text = xs + str(cc)
-	elif itemtype == "fuel":
+	if itemtype == "fuel":
 		var fc = int(fuel_count.text)
 		fc += 1
 		fuel_count.text = xs + str(fc)
-	elif itemtype == "upgrade":
+	if itemtype == "upgrade":
 		var uc = int(upgrade_count.text)
 		uc += 1
 		upgrade_count.text = xs + str(uc)
 
 func _on_CoolantChamber_modify_coolant(area):
 	if area == "coolant":
-		coolant_level.value += 100
+		var c_level = int(coolant_level.text)
+		c_level += 100
+		coolant_level.text = str(c_level)
 		score_temp = int(score.text) + 100 * 2
 		score.text = str(score_temp)
 		announcement.text = "Coolant level rising!"
 	if area == "fuel":
-		coolant_level.value -= 250
+		var c_level = int(coolant_level.text)
+		c_level -= 250
+		coolant_level.text = str(c_level)
 		announcement.text = "Fuel contaminate in coolant!"
 	if area == "upgrade":
-		coolant_level.max_value += 30
+		coolant_level_max += 30
 		score_temp = int(score.text) + 30 * 2
 		score.text = str(score_temp)
 		announcement.text = "Raising maximum coolant level!"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/scenes/item.tscn" type="PackedScene" id=2]
@@ -7,17 +7,16 @@
 [ext_resource path="res://assets/sprites/metalPanel_red-a.png" type="Texture" id=5]
 [ext_resource path="res://assets/font/Kenney Mini.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/font/Kenney Future.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://assets/sprites/barHorizontal_red_mid.png" type="Texture" id=8]
-[ext_resource path="res://assets/scenes/conveyor.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/scenes/Dispenser.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/scenes/CoolantChamber.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/scenes/Reactor.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/scenes/floor.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/sprites/scifiEnvironment_07.png" type="Texture" id=14]
-[ext_resource path="res://assets/sprites/items/crystal.png" type="Texture" id=15]
-[ext_resource path="res://assets/sprites/items/upgrade.png" type="Texture" id=16]
+[ext_resource path="res://assets/scenes/conveyor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/scenes/Dispenser.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/scenes/CoolantChamber.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/scenes/Reactor.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/scenes/floor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/sprites/scifiEnvironment_07.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/items/crystal.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/items/upgrade.png" type="Texture" id=15]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=1]
 
 size = 96
 outline_size = 4
@@ -27,7 +26,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 64
 outline_size = 4
@@ -37,7 +36,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=3]
 
 size = 64
 outline_size = 4
@@ -47,24 +46,25 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="DynamicFont" id=4]
 
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 16, 26 )
-margin_left = 0.0
-margin_right = 0.0
-margin_top = 0.0
-margin_bottom = 0.0
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-modulate_color = Color( 1, 1, 1, 1 )
-draw_center = true
+size = 60
+outline_size = 3
+outline_color = Color( 0.0745416, 0.722656, 0.0536346, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings", "font_data" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 32
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=6]
 
@@ -76,17 +76,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
-
-size = 32
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 
 size = 32
 outline_size = 0
@@ -96,7 +86,7 @@ use_filter = false
 font_data = ExtResource( 6 )
 _sections_unfolded = [ "Font", "Settings", "font_data" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 
 size = 32
 outline_size = 0
@@ -177,7 +167,7 @@ texture_pressed = ExtResource( 5 )
 expand = true
 _sections_unfolded = [ "Margin", "Textures", "Visibility", "texture_normal" ]
 
-[node name="Label" type="Label" parent="background/Restart" index="0"]
+[node name="RestartText" type="Label" parent="background/Restart" index="0"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -192,7 +182,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 1 )
 text = "RESTART"
 align = 1
 percent_visible = 1.0
@@ -215,7 +205,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 2
 valign = 1
@@ -239,7 +229,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 3 )
 text = "°F"
 align = 2
 valign = 1
@@ -248,59 +238,54 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
-[node name="CoolantLevel" type="ProgressBar" parent="." index="3"]
+[node name="CoolantLevel" type="Label" parent="." index="3"]
 modulate = Color( 0.0705882, 0.913725, 0.0627451, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 30.0
-margin_top = 28.0
-margin_right = 300.0
-margin_bottom = 58.0
+margin_top = 31.0
+margin_right = 308.0
+margin_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/fg = SubResource( 2 )
-min_value = 0.0
-max_value = 1000.0
-step = 1.0
-page = 0.0
-value = 5.0
-exp_edit = false
-rounded = false
-allow_greater = false
-allow_lesser = false
-percent_visible = true
-_sections_unfolded = [ "Grow Direction", "Margin", "Percent", "Rect", "Textures", "Tint", "Visibility", "custom_styles/fg" ]
+custom_fonts/font = SubResource( 4 )
+text = "0"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Custom Fonts", "Grow Direction", "Margin", "Percent", "Rect", "Textures", "Tint", "Visibility", "custom_fonts/font", "custom_styles/fg" ]
 
-[node name="Conveyor" parent="." index="4" instance=ExtResource( 9 )]
+[node name="Conveyor" parent="." index="4" instance=ExtResource( 8 )]
 show_behind_parent = true
 position = Vector2( 1000, 818 )
 scale = Vector2( 2.5, 1 )
 constant_linear_velocity = Vector2( 1, 0 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 
-[node name="Dispenser" parent="." index="5" instance=ExtResource( 10 )]
+[node name="Dispenser" parent="." index="5" instance=ExtResource( 9 )]
 position = Vector2( 962, 511 )
 z_index = 1
 
-[node name="CoolantChamber" parent="." index="6" instance=ExtResource( 11 )]
+[node name="CoolantChamber" parent="." index="6" instance=ExtResource( 10 )]
 position = Vector2( 120, 788 )
 scale = Vector2( 3.5, 3.5 )
 _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
-[node name="Reactor" parent="." index="7" instance=ExtResource( 12 )]
+[node name="Reactor" parent="." index="7" instance=ExtResource( 11 )]
 position = Vector2( 1790, 790 )
 scale = Vector2( 3.5, 3.5 )
 
-[node name="EngineRoomFloor" parent="." index="8" instance=ExtResource( 13 )]
+[node name="EngineRoomFloor" parent="." index="8" instance=ExtResource( 12 )]
 
 [node name="GridContainer" type="GridContainer" parent="." index="9"]
 anchor_left = 0.0
@@ -322,7 +307,7 @@ columns = 3
 
 [node name="fuelcrystal" type="Sprite" parent="GridContainer" index="0"]
 position = Vector2( 375, 99 )
-texture = ExtResource( 14 )
+texture = ExtResource( 13 )
 
 [node name="fuelcounter" type="Label" parent="GridContainer/fuelcrystal" index="0"]
 anchor_left = 0.0
@@ -339,7 +324,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -350,35 +335,36 @@ _sections_unfolded = [ "Custom Fonts", "custom_fonts/font" ]
 
 [node name="coolantcrystal" type="Sprite" parent="GridContainer" index="1"]
 position = Vector2( 670, 94 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="coolantcounter" type="Label" parent="GridContainer/coolantcrystal" index="0"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -41.0
-margin_top = 45.0
-margin_right = 58.0
-margin_bottom = 98.0
+margin_left = -47.0
+margin_top = 53.0
+margin_right = 52.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Custom Colors", "Custom Fonts", "custom_fonts/font" ]
+_sections_unfolded = [ "Custom Colors", "Custom Fonts", "Visibility", "custom_fonts/font" ]
 
 [node name="upgrade2" type="Sprite" parent="GridContainer" index="2"]
 position = Vector2( 110, 92 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 
 [node name="upgradecounter" type="Label" parent="GridContainer/upgrade2" index="0"]
 anchor_left = 0.0
@@ -395,7 +381,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -416,7 +402,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "UPGRADE TECH"
 percent_visible = 1.0
@@ -438,7 +424,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FUEL CRYSTAL"
 percent_visible = 1.0
@@ -460,7 +446,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "COOLANT CRYSTAL"
 percent_visible = 1.0

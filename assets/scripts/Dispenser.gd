@@ -8,8 +8,6 @@ signal start_conveyor
 signal start_dispenser
 signal create_item
 
-var first_run = true
-
 func _on_ReactorStart_pressed():
 	emit_signal("start_reactor")
 	announcement.text = "Now press the green button to start the dispenser."

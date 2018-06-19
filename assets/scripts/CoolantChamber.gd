@@ -1,9 +1,7 @@
 extends Area2D
 
-
-signal modify_coolant(item_type)
 signal coolant_level_dropping
-
+signal modify_coolant(item_type)
 
 func _on_LevelTimer_timeout():
 	emit_signal("coolant_level_dropping")
@@ -20,4 +18,3 @@ func _on_CoolantChamber_body_shape_entered(body_id, body, body_shape, area_shape
 		body.queue_free()
 	else:
 		return
-
